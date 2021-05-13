@@ -1,0 +1,54 @@
+1620624874324	Move 'admin' to 'view'
+1620624914447	Move 'user' to 'admin'
+1620624917962	Move 'user' to 'view'
+1620629820525	Move 'index.jsp' to 'main'
+1620629875738	Move 'index.jsp' to 'view'
+1620629880563	Delete element
+1620632520262	Move 'Category' to 'view'
+1620632820679	Move 'product.jsp' to 'Category'
+1620632850833	Delete element
+1620632851996	Delete element
+1620632880566	Copy file
+1620632896081	Copy file
+1620634276820	Delete element
+1620634278393	Delete element
+1620634282718	Delete element
+1620637396667	Move 'detail_ban.jsp' to 'join'
+1620638499988	Move 'detail_ban.jsp' to 'detail'
+1620666693848	Copy file
+1620669657287	Move file
+1620669904428	Move 'detail_ban.jsp' to 'detail'
+1620670098904	Copy file
+1620719878579	Copy file
+1620720452439	Move 'qnaboard' to 'board'
+1620720672703	Move 'qnaBoard.jsp' to 'qnaboard'
+1620720686407	Move 'reviewBoard.jsp' to 'reviewboard'
+1620720705889	Copy file
+1620720707259	Copy file
+1620720708206	Copy file
+1620720726051	Copy file
+1620720783460	Copy file
+1620720791216	Copy file
+1620720805995	Copy file
+1620720809195	Copy file
+1620720822458	Move 'boardContent.jsp' to 'reviewboard'
+1620720825037	Move 'boardUpdate.jsp' to 'reviewboard'
+1620721176241	Delete element
+1620721613857	Delete elements
+1620721622776	Move 'noticeboard' to 'view'
+1620721625543	Move 'qnaboard' to 'view'
+1620721627623	Move 'reviewboard' to 'view'
+1620721630837	Delete element
+1620728011508	Copy file
+1620804430955	Delete elements
+1620828635306	Rename type 'QnaBoardDAO'
+1620836131791	Rename type 'QnaBoardVO'
+1620878300749	Delete element
+1620889307170	Rename package 'spms.servlet'
+1620890375705	Rename compilation unit 'QnaBoardDeleteServelt.java'
+1620891734628	Rename type 'QnaBoardDao'
+1620891779943	Rename type 'QnaBoardAddServlet'
+1620891787903	Rename type 'QnaBoardDeleteServlet'
+1620891792610	Rename type 'QnaBoardListServlet'
+1620891800075	Rename type 'QnaBoardUpdateServlet'
+1620891811412	Rename type 'QnaBoard'

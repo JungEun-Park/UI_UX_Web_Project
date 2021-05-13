@@ -1,0 +1,71 @@
+package spms.dao;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import spms.vo.Board;
+
+public class BoardDao {
+   
+   DataSource ds = null;
+   
+   public void setDataSource(DataSource ds) {
+      this.ds = ds;
+   }
+
+  
+
+   public List<Board> selectList() throws Exception {
+		Connection connection = null;
+      Statement stmt = null;     // Statement객체를 생성하여 질의 수행을 해준다.
+      ResultSet rs = null;       // ResultSet 객체를 생성하여 결과를 저장해준다.
+      final String sqlSelect = "SELECT rboard_no,writer,rboard_title,rboard_content,reg_date" + "\r\n"
+                           + "FROM reviewboard" + "\r\n" + "ORDER BY rboard_no ASC";
+      try {
+			connection = ds.getConnection();
+
+         stmt = connection.createStatement();
+         rs = stmt.executeQuery(sqlSelect);
+         
+         ArrayList<Board> boards = new ArrayList<Board>();
+         
+         while(rs.next()) {
+            boards.add(new Board()
+                     .setBoardNo(rs.getInt("rboard_no"))
+                     .setWriter(rs.getString("writer"))
+                     .setBoardTitle(rs.getString("rboard_title"))
+                     .setBoardContent(rs.getString("rboard_content"))
+                     .setRegistrationDate(rs.getDate("reg_date")));
+         }
+         return boards;
+      } catch (Exception e) {
+         throw e;
+      } finally {
+         try {
+            if (rs != null)
+               rs.close();
+         } catch (Exception e) {
+            e.printStackTrace();
+         }
+         try {
+            if (stmt != null)
+               stmt.close();
+         } catch (Exception e) {
+            e.printStackTrace();
+         }
+         try {
+				/* DataSource가 빌려준 Connection은
+				 * close()시 연결이 종료되는 것이 아니라
+				 * 반납하는 의미이다
+				 * */
+				if(connection != null)
+					connection.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+      }
+   }
+}

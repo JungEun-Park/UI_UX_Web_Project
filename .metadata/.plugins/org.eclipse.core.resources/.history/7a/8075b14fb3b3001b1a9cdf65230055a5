@@ -1,0 +1,32 @@
+package spms.servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@SuppressWarnings("serial")
+@WebServlet("/qnaboard/delete")
+public class QnaBoardDeleteServelt extends HttpServlet {
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		try {
+			ServletContext sc = this.getServletContext();
+			MemberDao memberDao = (MemberDao) sc.getAttribute("memberDao");
+
+			memberDao.delete(Integer.parseInt(request.getParameter("no")));
+
+			response.sendRedirect("list");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			request.setAttribute("error", e);
+			RequestDispatcher rd = request.getRequestDispatcher("/Error.jsp");
+			rd.forward(request, response);
+
+		} 
+	}
+}

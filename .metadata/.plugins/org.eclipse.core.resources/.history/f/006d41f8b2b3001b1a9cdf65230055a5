@@ -1,0 +1,9 @@
+package spms.servlet;
+
+import javax.servlet.http.HttpServlet;
+
+@SuppressWarnings("serial")
+@WebServlet("/qnaboard/delete")
+public class QnaBoardDeleteServelt extends HttpServlet {
+
+}

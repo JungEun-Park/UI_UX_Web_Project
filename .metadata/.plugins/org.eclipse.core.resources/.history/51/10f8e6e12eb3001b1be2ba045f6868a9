@@ -1,0 +1,19 @@
+package spms.dao;
+
+import java.sql.*;
+import java.util.List;
+
+import spms.vo.QnaBoardVO;
+
+public class QnaBoardDao {
+	
+	Connection connection;  //..???
+	
+	public void setConnection(Connection connection) {
+		this.connection = connection;
+	}
+	
+	public List<QnaBoardVO> selectList() throws Exception{
+		
+	}
+}

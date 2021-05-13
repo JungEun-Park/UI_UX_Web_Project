@@ -1,0 +1,60 @@
+package spms.dao;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import spms.vo.QnaBoard;
+
+public class BoardDao {
+	
+	DataSource ds = null;
+	
+	public void setDataSource(DataSource ds) {
+		this.ds = ds;
+	}
+
+	Connection connection; // mysql연결을 위한 connection 객체생성해줌..?? 맞나..?
+
+	public void setConnection(Connection connection) {
+		this.connection = connection;
+	}
+
+	public List<QnaBoard> selectList() throws Exception {
+		Statement stmt = null;     // Statement객체를 생성하여 질의 수행을 해준다.
+		ResultSet rs = null;       // ResultSet 객체를 생성하여 결과를 저장해준다.
+		final String sqlSelect = "SELECT qboard_no,writer,qboard_title,qboard_content,reg_date" + "\r\n"
+									+ "FROM qnaboard" + "\r\n" + "ORDER BY qboard_no ASC";
+		try {
+			stmt = connection.createStatement();
+			rs = stmt.executeQuery(sqlSelect);
+			ArrayList<QnaBoard> qnaBoards = new ArrayList<QnaBoard>();
+			while(rs.next()) {
+				qnaBoards.add(new QnaBoard()
+							.setqBoardNo(rs.getInt("qboard_no"))
+							.setWriter(rs.getString("writer"))
+							.setqBoardTitle(rs.getString("qboard_title"))
+							.setqBoardContent(rs.getString("qboard_content"))
+							.setRegistrationDate(rs.getDate("reg_date")));
+			}
+			return qnaBoards;
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			try {
+				if (stmt != null)
+					stmt.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}

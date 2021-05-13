@@ -1,0 +1,52 @@
+package spms.vo;
+
+import java.util.Date;
+
+public class Board {
+	protected int qBoardNo;
+	protected String writer;
+	protected String qBoardTitle;
+	protected String qBoardContent;
+	protected Date registrationDate;
+	
+	
+	public int getqBoardNo() {
+		return qBoardNo;
+	}
+	public Board setqBoardNo(int qBoardNo) {
+		this.qBoardNo = qBoardNo;
+		return this;
+	}
+	public String getWriter() {
+		return writer;
+	}
+	public Board setWriter(String writer) {
+		this.writer = writer;
+		return this;
+	}
+	public String getqBoardTitle() {
+		return qBoardTitle;
+	}
+	public Board setqBoardTitle(String qBoardTitle) {
+		this.qBoardTitle = qBoardTitle;
+		return this;
+	}
+	public String getqBoardContent() {
+		return qBoardContent;
+	}
+	public Board setqBoardContent(String qBoardContent) {
+		this.qBoardContent = qBoardContent;
+		return this;
+	}
+	public Date getRegistrationDate() {
+		return registrationDate;
+	}
+	public Board setRegistrationDate(Date registrationDate) {
+		this.registrationDate = registrationDate;
+		return this;
+	}
+	
+	
+	
+}
+ 
